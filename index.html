@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Move Heart with Mouse</title>
+   
+   <style>
+     body{
+       height: 100vh;
+       width: 100vw;
+       background-color: #454EAE;
+
+     }
+     span{
+       
+       border: 2px solid black;
+       border-radius: 50%;
+       position: absolute;
+       left: 50%;
+       top: 50%;
+       transform: translate(-50%,-50%);
+       background-color: orange;
+       animation: animate 6s linear;
+       
+     }
+     @keyframes animate {
+       0%{
+         transform: translate(-50%,-50%);
+         opacity: 1;
+         filter: hue-rotate(0deg)
+         
+       }
+       100%{
+         transform: translate(-50%,-5000%);
+         opacity: 0;
+         filter: hue-rotate(2000deg)
+         
+       }
+     }
+   </style>
+   
+</head>
+<body>
+    
+    
+    
+</body>
+  
+  <script>
+  
+   let body = document.querySelector("body");
+   
+   body.addEventListener("mousemove",(e)=>{
+     let x = e.clientX;
+     let y = e.clientY;
+     let newspan = document.createElement('span');
+     body.appendChild(newspan);
+     newspan.style.left = x + 'px';
+     newspan.style.top = y + 'px';
+     let math = Math.random()*50;
+     
+     newspan.style.width = math + 'px';
+      newspan.style.height = math + 'px';
+    
+     
+     setTimeout(()=>{
+       newspan.remove();
+     },1500)
+   })
+    
+  </script>
+  
+</html>
